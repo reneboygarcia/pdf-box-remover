@@ -53,7 +53,7 @@ See `requirements.txt` for specific version requirements.
 
 1. Start the application:
    ```bash
-   streamlit run pdf_box_eraser/ui/streamlit_app.py
+   streamlit run app.py
    ```
 
 2. Upload your files:

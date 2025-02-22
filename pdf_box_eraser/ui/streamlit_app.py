@@ -75,6 +75,36 @@ class PDFBoxEraserUI:
                 st.write("Processed")
                 st.image(proc_img, use_container_width=True)
     
+    def display_stats(self, stats):
+        """Display processing statistics."""
+        st.write("### Processing Statistics")
+        
+        # Create two rows of metrics
+        row1_col1, row1_col2, row1_col3 = st.columns(3)
+        row2_col1, row2_col2 = st.columns([2, 1])
+        
+        with row1_col1:
+            st.metric("Pages Processed", stats['pages_processed'])
+        
+        with row1_col2:
+            st.metric("Pages Skipped", stats['pages_skipped'])
+        
+        with row1_col3:
+            st.metric("Boxes Removed", stats['boxes_removed'])
+        
+        with row2_col1:
+            st.metric("Box Patterns Found", stats['quick_matches'])
+        
+        with row2_col2:
+            st.metric("Objects Processed", stats['objects_processed'])
+        
+        # Show progress bar
+        total_pages = stats['pages_processed'] + stats['pages_skipped']
+        if total_pages > 0:
+            progress = stats['pages_processed'] / total_pages
+            st.progress(progress)
+            st.text(f"Progress: {progress:.1%}")
+    
     def handle_file_upload(self):
         """Handle PDF file upload and processing."""
         uploaded_file = st.file_uploader("Choose a PDF file", type=['pdf'])
