@@ -1,47 +1,84 @@
+![banner](images/banner.webp)
+
 # PDF Box Eraser
 
-A Streamlit application that removes unwanted black boxes from PDF files.
+A Python-based tool that removes unwanted rectangular boxes from PDF files while preserving the underlying content. Built with Streamlit for an easy-to-use web interface.
 
-## Features
+## 🚀 Features
 
-- Drag and drop PDF file upload
-- Automatic detection and removal of black boxes
-- Side-by-side comparison of original and processed pages
-- Download processed pages individually
-- Support for multi-page PDFs
+- **Box Removal**
+  - Remove rectangular boxes, borders, and outlines from PDF files
+  - Preserve text, images, and other content
+  - Process single or multiple pages
+  - Real-time progress tracking
+  - Statistics on boxes removed and pages processed
+  - Memory-efficient processing of large PDFs
+  - User-friendly web interface
 
-## Installation
+## 📋 Requirements
 
-1. Clone this repository
-2. Install the required dependencies:
-```bash
-pip install -r requirements.txt
-```
+- Python 3.8+
+- Dependencies from `requirements.txt`:
+  - streamlit
+  - pdf2image
+  - opencv-python
+  - numpy
+  - Pillow
+  - PyPDF2
+  - watchdog
+  - pikepdf
 
-## Usage
+See `requirements.txt` for specific version requirements.
 
-1. Run the Streamlit app:
-```bash
-streamlit run app.py
-```
+## 🛠️ Installation
 
-2. Open your web browser and navigate to the provided URL
-3. Upload a PDF file using the file uploader
-4. View the processed results and download the modified pages
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/reneboygarcia/pdf-box-eraser
+   cd pdf_box_eraser
+   ```
 
-## How it works
+2. Create and activate a virtual environment (recommended):
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 
-The application uses:
-- `pdf2image` for PDF to image conversion
-- `OpenCV` for box detection and removal
-- `Streamlit` for the web interface
-- `Pillow` for image processing
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-The box detection algorithm looks for rectangular shapes based on:
-- Contour detection
-- Area thresholds
-- Aspect ratio filtering
+## 💻 Usage
 
-## Requirements
+1. Start the application:
+   ```bash
+   streamlit run pdf_box_eraser/ui/streamlit_app.py
+   ```
 
-See `requirements.txt` for a full list of dependencies.
+2. Upload your files:
+   - Drop your PDF files in the upload area
+
+3. Click "Process PDFs" to begin:
+   - The app will remove unwanted rectangular boxes from the PDFs
+   - Processed PDFs will preserve the underlying content
+
+## Technical Details
+
+- Uses `pikepdf` for low-level PDF manipulation
+- Implements pattern matching to identify and remove box-drawing operations
+- Handles various PDF structures including Form XObjects and ExtGState
+- Manages memory efficiently for large PDFs
+- Provides detailed logging for debugging
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📝 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## ⚠️ Disclaimer
+
+This tool is intended for legitimate use only. Users are responsible for ensuring they have the right to access and modify any PDFs they process.
