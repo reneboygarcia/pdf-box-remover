@@ -28,6 +28,19 @@ class PDFBoxEraserUI:
         """Initialize the UI components."""
         st.title(UIConstants.TITLE)
         st.write(UIConstants.DESCRIPTION)
+        
+        # Add GitHub profile and email links with icons
+        st.markdown(
+            '<div style="display: flex; gap: 10px;">'
+            '<a href="https://github.com/reneboygarcia" target="_blank">'
+            '<img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github" '
+            'alt="GitHub Profile"></a>'
+            '<a href="mailto:data.eng.eboy@gmail.com">'
+            '<img src="https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail" '
+            'alt="Email Contact"></a>'
+            '</div>',
+            unsafe_allow_html=True
+        )
     
     def create_progress_components(self):
         """Create and return progress tracking components."""
