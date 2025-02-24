@@ -6,3 +6,4 @@ Pillow>=9.5.0
 PyPDF2>=3.0.0
 watchdog>=3.0.0
 pikepdf>=8.11.1
+# poppler-utils>=0.90.0
